@@ -7,10 +7,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         int counter = 0;
-        String[] facultyPositions = {"Assistant", "Associate", "Full"};
-        LinkedHashMap<Integer, String> facultyNumbers = new LinkedHashMap<Integer, String>();
+        LinkedHashMap<Integer, String> facultyNumbers = new LinkedHashMap<>();
         facultyNumbers.put(0, "Assistant");
         facultyNumbers.put(1, "Associate");
         facultyNumbers.put(2, "Full");
@@ -21,10 +20,10 @@ public class Main {
             while (counter < 5) {
                 printWriter.print("Patrick" + counter + " ");
                 printWriter.print("McGuire" + counter + " ");
-                int holder = ThreadLocalRandom.current().nextInt(0, 3);
-                printWriter.print(facultyNumbers.get(holder) + " ");
+                int seed = ThreadLocalRandom.current().nextInt(0, 3);
+                printWriter.print(facultyNumbers.get(seed) + " ");
 
-                switch (holder) {
+                switch (seed) {
                     case 0:
                         printWriter.print(ThreadLocalRandom.current().nextInt(50000, 80000 + 1));
                         break;
